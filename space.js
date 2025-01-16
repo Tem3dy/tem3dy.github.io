@@ -25,9 +25,10 @@ function spawn(amount) {
         const radius = Math.random() * 15 + 5;
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        const dx = (Math.random() - 0.5) * (Math.random() * 5);
-        const dy = (Math.random() - 0.5) * (Math.random() * 5);
-        asteroids.push(new Asteroid(ctx, x, y, radius, dx < 0.25 ? 0.25 : dx, dy < 0.25 ? 0.25 : dy));
+
+        const dx = Math.max((Math.random() - 0.5) * (Math.random() * 5), 0.25);
+        const dy = Math.max((Math.random() - 0.5) * (Math.random() * 5), 0.25);
+        asteroids.push(new Asteroid(ctx, x, y, radius, dx, dy));
     }
 }
 
