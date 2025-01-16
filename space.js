@@ -26,8 +26,18 @@ function spawn(amount) {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
 
-        const dx = Math.max((Math.random() - 0.5) * (Math.random() * 5), 1);
-        const dy = Math.max((Math.random() - 0.5) * (Math.random() * 5), 1);
+        let dx = (Math.random() - 0.5) * (Math.random() * 5);
+        let dy = (Math.random() - 0.5) * (Math.random() * 5);
+        if (Math.abs(dx) < 0.5) {
+            let roll = Math.random() < 0.5;
+            dx += roll ? Math.random() * 5 : -(Math.random() * 5);
+        }
+
+        if (Math.abs(dy) < 0.5) {
+            let roll = Math.random() < 0.5;
+            dy += roll ? Math.random() * 5 : -(Math.random() * 5);
+        }
+
         asteroids.push(new Asteroid(ctx, x, y, radius, dx, dy));
     }
 }
