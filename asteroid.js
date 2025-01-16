@@ -21,19 +21,19 @@ export class Asteroid {
         ctx.closePath();
     }
 
-    update(canvas, ctx, meteorites, spawn) {
+    update(canvas, ctx, asteroids, spawn) {
         this.x += this.dx;
         this.y += this.dy;
         if (this.x < 0 - this.offset || this.x > canvas.width + this.offset || this.y < 0 - this.offset || this.y > canvas.height + this.offset) {
-            this.respawn(meteorites, spawn);
+            this.respawn(asteroids, spawn);
         }
         this.draw(ctx);
     }
 
-    respawn(meteorites, spawn) {
-        const index = meteorites.indexOf(this);
+    respawn(asteroids, spawn) {
+        const index = asteroids.indexOf(this);
         if (index > -1) {
-            meteorites.splice(index, 1);
+            asteroids.splice(index, 1);
         }
         spawn(1);
     }
