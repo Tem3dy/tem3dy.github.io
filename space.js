@@ -14,6 +14,10 @@ function onResize(oldHeight, newHeight) {
     if (newHeight > oldHeight) {
         const difference = newHeight - oldHeight;
         amount += Math.ceil(Math.random() * difference) / 10;
+        asteroids.forEach(asteroid => {
+            asteroid.dx += (difference / 25) * (Math.random() - 0.5);
+            asteroid.dy += (difference / 25) * (Math.random() - 0.5);
+        });
     } else {
         amount += Math.ceil(Math.random() * 10);
     }
