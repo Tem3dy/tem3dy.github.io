@@ -21,7 +21,7 @@ function onResize(oldHeight, newHeight) {
     } else {
         amount += Math.ceil(Math.random() * 10);
     }
-    spawn(amount)
+    spawn(amount);
 }
 
 function spawn(amount) {
