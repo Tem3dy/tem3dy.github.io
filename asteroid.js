@@ -1,4 +1,4 @@
-export class Meteorite {
+export class Asteroid {
     constructor(ctx, x, y, radius, dx, dy) {
         this.ctx = ctx;
         this.x = x;

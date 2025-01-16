@@ -1,13 +1,13 @@
-import {Meteorite} from "./meteorite.js";
+import {Asteroid} from "./asteroid.js";
 
 const canvas = document.getElementById('space');
 const ctx = canvas.getContext('2d');
 
-let meteorites = [];
+let asteroids = [];
 
 function onResize(oldHeight, newHeight) {
-    if (meteorites.length > 100) {
-        meteorites = meteorites.slice(0, 100);
+    if (asteroids.length > 100) {
+        asteroids = asteroids.slice(0, 100);
     }
 
     let amount = 0;
@@ -27,13 +27,13 @@ function spawn(amount) {
         const y = Math.random() * canvas.height;
         const dx = (Math.random() - 0.5) * (Math.random() * 5);
         const dy = (Math.random() - 0.5) * (Math.random() * 5);
-        meteorites.push(new Meteorite(ctx, x, y, radius, dx < 0.25 ? 0.5 : dx, dy < 0.25 ? 0.5 : dy));
+        asteroids.push(new Asteroid(ctx, x, y, radius, dx < 0.25 ? 0.25 : dx, dy < 0.25 ? 0.25 : dy));
     }
 }
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    meteorites.forEach((meteorite) => meteorite.update(canvas, ctx, meteorites, spawn));
+    asteroids.forEach(asteroid => asteroid.update(canvas, ctx, asteroids, spawn));
     requestAnimationFrame(draw);
 }
 
