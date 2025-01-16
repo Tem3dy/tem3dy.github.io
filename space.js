@@ -26,8 +26,8 @@ function spawn(amount) {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
 
-        const dx = Math.max((Math.random() - 0.5) * (Math.random() * 5), 0.25);
-        const dy = Math.max((Math.random() - 0.5) * (Math.random() * 5), 0.25);
+        const dx = Math.max((Math.random() - 0.5) * (Math.random() * 5), 1);
+        const dy = Math.max((Math.random() - 0.5) * (Math.random() * 5), 1);
         asteroids.push(new Asteroid(ctx, x, y, radius, dx, dy));
     }
 }
