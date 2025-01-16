@@ -27,7 +27,7 @@ function spawn(amount) {
         const y = Math.random() * canvas.height;
         const dx = (Math.random() - 0.5) * (Math.random() * 5);
         const dy = (Math.random() - 0.5) * (Math.random() * 5);
-        meteorites.push(new Meteorite(ctx, x, y, radius, dx, dy));
+        meteorites.push(new Meteorite(ctx, x, y, radius, dx < 0.25 ? 0.5 : dx, dy < 0.25 ? 0.5 : dy));
     }
 }
 
