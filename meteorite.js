@@ -6,6 +6,7 @@ export class Meteorite {
         this.radius = radius;
         this.dx = dx;
         this.dy = dy;
+        this.offset = 40;
     }
 
     draw(ctx) {
@@ -23,7 +24,7 @@ export class Meteorite {
     update(canvas, ctx, meteorites, spawn) {
         this.x += this.dx;
         this.y += this.dy;
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+        if (this.x < 0 - this.offset || this.x > canvas.width + this.offset || this.y < 0 - this.offset || this.y > canvas.height + this.offset) {
             this.respawn(meteorites, spawn);
         }
         this.draw(ctx);
